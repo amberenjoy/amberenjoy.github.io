@@ -326,47 +326,14 @@
 
       
         
-          
-            <h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h3 id="TCP-IP-和-ISO-OSI参考模型"><a href="#TCP-IP-和-ISO-OSI参考模型" class="headerlink" title="TCP/IP 和 ISO/OSI参考模型"></a>TCP/IP 和 ISO/OSI参考模型</h3><p><strong>ISO/OSI</strong></p>
-<blockquote>
-<p>应用层–HTTP，FTP，DNS，SMTP<br><br>表示层<br><br>会话层<br><br>传输层–TCP, UDP<br><br>网络层–IP, ICMP, ARP, RARP<br><br>数据链路层<br><br>物理层<br></p>
-</blockquote>
-<p><strong>TCP/IP</strong><br>互联网基础的网络协议–四层协议系统</p>
-<blockquote>
-<p>应用层，传输层，网络层，网络接口层</p>
-</blockquote>
-<h3 id="浏览器中输入网址后到页面展现的过程"><a href="#浏览器中输入网址后到页面展现的过程" class="headerlink" title="浏览器中输入网址后到页面展现的过程"></a>浏览器中输入网址后到页面展现的过程</h3><ol>
-<li><p>用户输入网址</p>
-</li>
-<li><p>浏览器通过DNS获取网站的IP地址</p>
-<p> DNS查找IP地址的顺序：浏览器缓存，客户端缓存，互联网服务提供商（ISP）的DNS缓存，递归搜索（没有找到对应的IP地址，请求上级DNS服务器，直至找到或到根节点</p>
-</li>
-<li><p>浏览器客户端发送Http请求</p>
-<p> Http请求包括请求报头和请求主体两个部分，其中请求报头包含了至关重要的信息，包括请求的方法（GET / POST）、目标url、遵循的协议（http / https / ftp…），返回的信息是否需要缓存，以及客户端是否发送cookie等。</p>
-</li>
-<li><p>传输层TCP传输报文–<strong>三次握手</strong></p>
-</li>
-<li><p>网络层IP协议查询MAC地址</p>
-<p>IP协议的作用是把TCP分割好的各种数据包传送给接收方。而要保证确实能传到接收方还需要接收方的MAC地址，也就是物理地址。<br><br>IP地址和MAC地址是一一对应的关系，一个网络设备的IP地址可以更换，但是MAC地址一般是固定不变的。ARP协议可以将IP地址解析成对应的MAC地址。<br><br>当通信的双方不在同一个局域网时，需要多次中转才能到达最终的目标，在中转的过程中需要通过下一个中转站的MAC地址来搜索下一个中转目标。</p>
-</li>
-<li><p>数据到达数据链路层</p>
-<p> 在找到对方的MAC地址后，就将数据发送到数据链路层传输。这时，<strong>客户端发送请求的阶段结束</strong></p>
-</li>
-<li><p>服务器接收数据</p>
-<p> 接收端的服务器在链路层接收到数据包，再层层向上直到应用层。这过程中包括在运输层通过TCP协议将分段的数据包重新组成原来的HTTP请求报文。</p>
-</li>
-<li><p>服务器响应请求</p>
-<p> 服务接收到客户端发送的HTTP请求后，查找客户端请求的资源，并返回响应报文，响应报文中包括一个重要的信息——状态码。<br><br> 状态码由三位数字组成，其中比较常见的是200 OK表示请求成功。301表示永久重定向，即请求的资源已经永久转移到新的位置。在返回301状态码的同时，响应报文也会附带重定向的url，客户端接收到后将http请求的url做相应的改变再重新发送。404 not found 表示客户端请求的资源找不到。</p>
-</li>
-<li><p>服务器返回响应文件</p>
-<p> 请求成功后，服务器会返回相应的HTML文件。接下来就到了页面的渲染阶段了。</p>
-</li>
-<li><p>页面渲染</p>
-<p>关于页面渲染过程：<br><br>　　　　1）解析HTML代码，生成一棵DOM树<br><br>　　　　2）解析CSS文件<br><br>　　　　3）生成渲染树（受样式影响，包含不可见元素）<br><br>　　　　4）渲染树中的节点<br></p>
-</li>
-</ol>
-
-          
+          <h3 id="TCP-IP-和-ISO-OSI参考模型"><a href="#TCP-IP-和-ISO-OSI参考模型" class="headerlink" title="TCP/IP 和 ISO/OSI参考模型"></a>TCP/IP 和 ISO/OSI参考模型</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/03/TCP:IP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -481,159 +448,14 @@
 
       
         
-          
-            <h3 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js"></a>什么是Node.js</h3><hr>
-<p>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个<strong>解析器</strong>。</p>
-<h4 id="REPL开发"><a href="#REPL开发" class="headerlink" title="REPL开发"></a>REPL开发</h4><p><strong>[read eval print loop]</strong> 交互式解释器，提供了一种交互方式，即“执行程序，展现结果”，就是一个<strong>终端命令行工具</strong>。</p>
-<p>表示一个电脑的环境，类似windows终端，Unix／linux的shell。</p>
-<p>node的REPL中，this指代的是global。</p>
-<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p>在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名。</p>
-<p>在编写每个模块时，都有<strong>require、exports、module</strong>三个预先定义好的变量可供使用。</p>
-<p><strong>require</strong></p>
-<blockquote>
-<p>require函数用于在当前模块中加载和使用别的模块，传入一个模块名，返回一个模块导出对象。</p>
-</blockquote>
-<p><strong>exports</strong></p>
-<blockquote>
-<p>exports对象是当前模块的导出对象，用于导出模块公有方法和属性。别的模块通过require函数使用当前模块时得到的就是当前模块的exports对象</p>
-</blockquote>
-<p><strong>module</strong></p>
-<blockquote>
-<p>通过module对象可以访问到当前模块的一些相关信息，但最多的用途是替换当前模块的导出对象。</p>
-</blockquote>
-<p><strong>模块初始化</strong></p>
-<blockquote>
-<p>一个模块中的JS代码仅在模块第一次被使用时执行一次，并在执行过程中初始化模块的导出对象。之后，缓存起来的导出对象被重复利用。</p>
-</blockquote>
-<p>NodeJS使用CMD模块系统，主模块作为程序入口点，所有模块在执行过程中只初始化一次。</p>
-<h4 id="EventEmitter"><a href="#EventEmitter" class="headerlink" title="EventEmitter"></a>EventEmitter</h4><p>Node.js 所有的异步 I/O 操作在完成时都会<strong>发送一个事件到事件队列</strong>。</p>
-<p>Node.js里面的许多对象都会分发事件：一个net.Server对象会在每次有新连接时分发一个事件， 一个fs.readStream对象会在文件被打开的时候发出一个事件。 所有这些产生事件的对象都是<strong>events.EventEmitter</strong> 的实例。</p>
-<p>events 模块只提供了一个对象： events.EventEmitter。EventEmitter 的核心就是事件触发与事件监听器功能的封装。</p>
-<blockquote>
-<p>EventEmitter 提供了多个属性，如 on 和 emit。<strong>on</strong>函数用于绑定事件函数，<strong>emit</strong> 属性用于触发一个事件。eg:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const events=require(&apos;events&apos;);</div><div class="line"></div><div class="line">evt=new events.EventEmitter();</div><div class="line"></div><div class="line">function eventHandler()&#123;</div><div class="line">    console.log(&apos;111&apos;);</div><div class="line">&#125;</div><div class="line">evt.on(&apos;eventName&apos;,eventHandler);</div><div class="line"></div><div class="line">evt.emit(&apos;eventName&apos;);</div></pre></td></tr></table></figure>
-<blockquote>
-<h3 id="继承-EventEmitter"><a href="#继承-EventEmitter" class="headerlink" title="继承 EventEmitter"></a>继承 EventEmitter</h3><p>大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它。包括 fs、net、 http 在内的，只要是支持事件响应的核心模块都是 EventEmitter 的子类。</p>
-</blockquote>
-<h4 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h4><p>Node.js 中的全局对象是 global，所有全局变量（除了 global 本身以外）都是 global 对象的属性。</p>
-<p>当你定义一个全局变量时，这个变量同时也会成为全局对象的属性，反之亦然</p>
-<p>永远使用 var 定义变量以避免引入全局变量，因为全局变量会污染 命名空间，提高代码的耦合风险。</p>
-<blockquote>
-<p><code>__filename</code> 表示当前正在执行的脚本的文件名, 输出文件所在位置的绝对路径。</p>
-<p><code>__dirname</code> 表示当前执行脚本所在的目录。</p>
-</blockquote>
-<h4 id="文件系统-File-System"><a href="#文件系统-File-System" class="headerlink" title="文件系统(File System)"></a>文件系统(File System)</h4><p>Node 导入文件系统模块(fs) <code>var fs = require(&quot;fs&quot;)</code></p>
-<blockquote>
-<p>同步读取文件 readFileSync()<br><br>异步读取文件 readFile()（开辟函数，占用内存）。<br>同理 writeFile 文件写入</p>
-</blockquote>
-<h4 id="实用函数-Utilities-–util"><a href="#实用函数-Utilities-–util" class="headerlink" title="实用函数(Utilities)–util"></a>实用函数(Utilities)–util</h4><p>提供常用函数的集合,主要目的是为了满足Node内部API的需求</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">格式化输出字符串：util.format(format[, ...])</div><div class="line">在控制台标准输出：util.log(string)</div><div class="line">将对象序列化为字符串：util.inspect(object[, options])</div><div class="line">自定义 util.inspect 颜色</div><div class="line">自定义对象的 inspect() 方法</div><div class="line">检查对象是否是数组：util.isArray(object)</div><div class="line">检查对象是否是RegExp类型：util.isRegExp(object)</div><div class="line">检查对象是否是Date类型：util.isDate(object)</div><div class="line">检查对象是否是Error类型：util.isError(object)</div><div class="line">实现对象间原型继承：util.inherits(constructor, superConstructor)</div></pre></td></tr></table></figure>
-<h4 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a>Buffer(缓冲区)</h4><p>用来创建一个专门存放二进制数据的缓存区。<br><br>一个 Buffer 类似于一个整数数组，但它对应于 V8 堆内存之外的一块原始内存。</p>
-<h3 id="Node-js-知识点"><a href="#Node-js-知识点" class="headerlink" title="Node.js 知识点"></a>Node.js 知识点</h3><hr>
-<p><strong>npm</strong> 包管理器，自动管理包的依赖<br></p>
-<blockquote>
-<p>Node.js Package Manager<br></p>
-</blockquote>
-<p><strong>express</strong> web框架</p>
-<blockquote>
-<p>Node.js 的依赖是以项目为单位管理的，直接就安装在项目的 node_modules 目录下，而且每个依赖都可以有指定版本的其他依赖，这些依赖像一棵树一样</p>
-</blockquote>
-<p>端口</p>
-<blockquote>
-<p>端口的作用：通过端口来区分出同一电脑内不同应用或者进程，从而实现一条物理网线(通过分组交换技术-比如internet)同时链接多个程序 Port_(computer_networking)</p>
-<p>端口号是一个 16位的 uint, 所以其范围为 1 to 65535 (对TCP来说, port 0 被保留，不能被使用. 对于UDP来说, source端的端口号是可选的， 为0时表示无端口).</p>
-<p>app.listen(3000)，进程就被打标，电脑接收到的3000端口的网络消息就会被发送给我们启动的这个进程</p>
-</blockquote>
-<p>URL</p>
-<blockquote>
-<p>RFC1738 定义的url格式笼统版本<scheme>:<scheme-specific-part>， scheme有我们很熟悉的http、https、ftp，以及著名的ed2k，thunder。</scheme-specific-part></scheme></p>
-<p>通常的URL<br><code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;url-path&gt;</code></p>
-<p>ftp一般这么长，网页上很少带auth信息，所以就精简成这样:<br><br><code>&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/&lt;url-path&gt;</code><br><br>scheme=http, host=localhost, port=3000, url-path=/</p>
-</blockquote>
-<h3 id="Express-tips"><a href="#Express-tips" class="headerlink" title="Express tips"></a>Express tips</h3><hr>
-<ol>
-<li><p>启动脚本app.js的app.get方法，用于指定不同的访问路径所对应的回调函数，这叫做“路由”（routing）<br><br> 运行原理<br><br> <strong>底层：http模块<br></strong><br> Express框架建立在node.js内置的http模块上。<br><br> Express框架的核心是对http模块的再包装。<br></p>
-<blockquote>
-<p>原来是用http.createServer方法新建一个app实例，现在则是用Express的构造方法，生成一个Epress实例。两者的回调函数都是相同的。Express框架等于在http模块之上，加了一个<strong>中间层</strong>。</p>
-</blockquote>
-<p> <strong>中间件（middleware）</strong><br><br> 处理HTTP请求的函数<br><br> express 中的中间件（middleware）就是用来处理请求的，当一个中间件处理完，可以通过调用 next() 传递给下一个中间件，如果没有调用 next()，则请求不会往下传递.</p>
-<blockquote>
-<p>App实例在运行过程中，会调用一系列的中间件。<br><br>每个中间件可以从App实例，接收三个参数，依次为</p>
-<blockquote>
-<p>request对象（代表HTTP请求）、<br><br>response对象（代表HTTP回应），<br><br>next回调函数（代表下一个中间件）。<br></p>
-</blockquote>
-<p>每个中间件都可以对HTTP请求（request对象）进行加工，并且决定是否调用next方法，将request对象再传给下一个中间件。</p>
-<p>next 可接受一个参数接收错误信息，如果使用了 next(error)，则会返回错误而不会传递到下一个中间件.</p>
-</blockquote>
-<p> <strong>use方法</strong><br><br> use是express注册中间件的方法，它返回一个函数。<br><br> use方法内部可以对访问路径进行判断，据此就能实现简单的路由，根据不同的请求网址，返回不同的网页内容。</p>
-</li>
-</ol>
-<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p><strong>1, all方法和HTTP动词方法</strong><br><br>get方法,post、put、delete方法，即HTTP动词都是Express的方法。</p>
-<blockquote>
-<p><code>app.all(&quot;*&quot;, function(request, response, next) {});</code><br>上面代码的all方法表示，所有请求都必须通过该中间件，参数中的“*”表示对所有路径有效。</p>
-</blockquote>
-<p><strong>2, set方法</strong><br></p>
-<blockquote>
-<p>set方法用于指定变量的值。</p>
-</blockquote>
-<p><strong>3, response对象</strong></p>
-<blockquote>
-<p>response.redirect方法允许网址的重定向。<br><br>response.sendFile方法用于发送文件。<br><br>response.render方法用于渲染网页模板。<br></p>
-</blockquote>
-<p><strong>4, requst对象</strong></p>
-<blockquote>
-<p>request.ip属性用于获得HTTP请求的IP地址。<br><br>request.files用于获取上传的文件。<br></p>
-</blockquote>
-<h4 id="指定静态文件目录"><a href="#指定静态文件目录" class="headerlink" title="指定静态文件目录"></a>指定静态文件目录</h4><p>模板文件默认存放在views子目录。<br><br>这时，如果要在网页中加载静态文件（比如样式表、图片等），就需要另外指定一个存放静态文件的目录。<br><code>app.use(express.static(&#39;public&#39;));</code></p>
-<h4 id="Express-路由规则"><a href="#Express-路由规则" class="headerlink" title="Express 路由规则"></a>Express 路由规则</h4><h5 id="Express-Router用法"><a href="#Express-Router用法" class="headerlink" title="Express.Router用法"></a>Express.Router用法</h5><p>express 4.0, 路由器功能成了一个单独的组件，有自己的use，get,param和route方法。<br><strong>基本用法</strong><br></p>
-<blockquote>
-<p>Express.Router是一个构造函数，调用后返回一个路由器实例。</p>
-<blockquote>
-<p><code>var router = express.Router();</code><br></p>
-</blockquote>
-<p>然后，使用该实例的HTTP动词方法，为不同的访问路径，指定回调函数；<br>最后，挂载到某个路径。<br></p>
-<blockquote>
-<p><code>app.use(&#39;/&#39;, router);</code> 挂载到根目录下<br></p>
-</blockquote>
-<p>这种路由器可以自由挂载的做法，为程序带来了更大的灵活性，既可以定义多个路由器实例，也可以为将同一个路由器实例挂载到多个路径。</p>
-</blockquote>
-<h4 id="模板引擎（Template-Engine）-ejs"><a href="#模板引擎（Template-Engine）-ejs" class="headerlink" title="模板引擎（Template Engine） ejs"></a>模板引擎（Template Engine） ejs</h4><p>ejs 有 3 种常用标签：</p>
-<pre><code>&lt;% code %&gt;：运行 JavaScript 代码，不输出&lt;br/&gt;
-&lt;%= code %&gt;：显示转义后的 HTML内容&lt;br/&gt;
-&lt;%- code %&gt;：显示原始 HTML 内容
-</code></pre><h3 id="Process模块"><a href="#Process模块" class="headerlink" title="Process模块"></a>Process模块</h3><hr>
-<ul>
-<li><p>process模块用来与当前进程互动，可以通过全局变量process访问，不必使用require命令加载。它是一个EventEmitter对象的实例。</p>
-<p>  process.argv</p>
-<blockquote>
-<p>返回命令行脚本的各个参数组成的数组。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="Path模块"><a href="#Path模块" class="headerlink" title="Path模块"></a>Path模块</h3><hr>
-<p>路径处理模块</p>
-<ul>
-<li>获取路径：path.dirname(filepath)</li>
-<li>获取文件名：path.basename(filepath)</li>
-<li>获取扩展名：path.extname(filepath)</li>
-</ul>
-<h3 id="crypto模块"><a href="#crypto模块" class="headerlink" title="crypto模块"></a>crypto模块</h3><hr>
-<p>提供通用的加密和哈希算法</p>
-<ul>
-<li>MD5：常用的哈希算法，用于给任意数据一个“签名”，通常用十六进制的字符串表示。同理，SHA1</li>
-<li>Hmac：用随机数“增强”的哈希算法，需要一个密钥，密钥发生了变化，那么同样的输入数据也会得到不同的签名。</li>
-<li>AES：常用的对称加密算法，加解密都用一个密钥。需要自己封装好函数。</li>
-</ul>
-<h3 id="cors模块"><a href="#cors模块" class="headerlink" title="cors模块"></a>cors模块</h3><hr>
-<p>Cross-Origin Resource Sharing跨域资源共享</p>
-<p>高级浏览器(Chrome,firefox, opera, safir, ie10)在 XMLHttpRequest(AJAX) 中已经支持了这个协议。可以实现ajax跨域访问。（其实IE8也实现了，只不过是另外一个对象）</p>
-<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><hr>
-<p>环境变量指示了express的外部（操作系统）环境。</p>
-<p><strong>开发环境 VS 生产环境</strong></p>
-<p>开发环境指的是开发时所处的环境，此时应当给出足够的错误信息<br>生产环境为产品实际运行的环境，此时为了安全考虑往往会禁止将内部错误输出给用户，同时资源文件应当压缩和缓存以减少开销。</p>
-
-          
+          <p>JS是脚本语言，脚本语言都需要一个解析器才能运行。对于写在HTML页面里的JS，浏览器充当了解析器的角色。而对于需要独立运行的JS，NodeJS就是一个<strong>解析器</strong>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/03/Node/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -748,64 +570,14 @@
 
       
         
-          
-            <h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><h3 id="表征状态转移"><a href="#表征状态转移" class="headerlink" title="表征状态转移"></a>表征状态转移</h3><p>（Representational State Transfer）基于HTTP协议的网络应用的接口风格，利用HTTP方法实现统一风格接口的服务。<br></p>
-<p>资源（Resources）<br></p>
-<p>REST的名称”表现层状态转化”中，省略了主语。“表现层”其实指的是”资源”（Resources）的”表现层”。</p>
-<p>“资源”，就是网络上的一个实体，或者是网络上的一个具体信息。可以用一个URL（统一资源定位符）指向它。每种资源对应一个特定的URI（uniform resource identifier，统一资源标识符）。”上网”，就是与互联网上一系列的”资源”互动，调用它的URI。</p>
-<p>表现层（Representation）<br></p>
-<p>“资源”是一种信息实体，它可以有多种外在表现形式。我们把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。<br></p>
-<p>URI只代表资源的实体，不代表形式。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
-<p>状态转化（State Transfer）<br></p>
-<p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。<br></p>
-<p>互联网通信协议HTTP协议，是一个<strong>无状态协议</strong>。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</p>
-<p><strong>什么是RESTful架构：</strong><br></p>
-<blockquote>
-<p>每一个URI代表一种资源；<br><br>客户端和服务器之间，传递这种资源的某种表现层；<br><br>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</p>
-</blockquote>
-<h3 id="RESTful架构"><a href="#RESTful架构" class="headerlink" title="RESTful架构"></a>RESTful架构</h3><p>–(<strong>改变url写法，让它带有状态，即语义化</strong>)</p>
-<pre><code>（1）每一个URI代表一种资源；&lt;br/&gt;
-（2）客户端和服务器之间，传递这种资源的某种表现层；&lt;br/&gt;
-（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现&quot;表现层状态转化&quot;。
-</code></pre><h3 id="HTTP协议定义了8种标准的方法。"><a href="#HTTP协议定义了8种标准的方法。" class="headerlink" title="HTTP协议定义了8种标准的方法。"></a>HTTP协议定义了8种标准的方法。</h3><p>(GET, POST, PUT, DELETE, PATCH, OPTION, HEAD)</p>
-<p><strong>关于方法语义的说明：</strong></p>
-<p>OPTIONS 用于获取资源支持的所有 HTTP 方法<br><br>HEAD 用于只获取请求某个资源返回的头信息<br><br>GET 用于从服务器获取某个资源的信息<br></p>
-<blockquote>
-<p>完成请求后返回状态码 200 OK<br><br>完成请求后需要返回被请求的资源详细信息<br></p>
-</blockquote>
-<p>POST 用于创建新资源<br></p>
-<blockquote>
-<p>创建完成后返回状态码 201 Created<br><br>完成请求后需要返回被创建的资源详细信息<br></p>
-</blockquote>
-<p>PUT 用于完整的替换资源或者创建指定身份的资源，比如创建 id 为 123 的某个资源<br></p>
-<blockquote>
-<p>如果是创建了资源，则返回 201 Created<br><br>如果是替换了资源，则返回 200 OK<br><br>完成请求后需要返回被修改的资源详细信息<br></p>
-</blockquote>
-<p>PATCH 用于局部更新资源<br></p>
-<blockquote>
-<p>完成请求后返回状态码 200 OK<br><br>完成请求后需要返回被修改的资源详细信息<br></p>
-</blockquote>
-<p>DELETE 用于删除某个资源<br></p>
-<p><strong>安全：</strong>是指没有副作用，即请求不会对资源产生变动，连续访问多次所获得的结果不受访问者的影响。    </p>
-<blockquote>
-<p>(例如，POST: 向指定资源提交数据。PUT: 请求服务器存储一个资源。DELETE:请求服务器删除指定资源。这三个方法不安全)</p>
-</blockquote>
-<h3 id="WEB服务接收与返回的互联网资源类型"><a href="#WEB服务接收与返回的互联网资源类型" class="headerlink" title="WEB服务接收与返回的互联网资源类型"></a>WEB服务接收与返回的互联网资源类型</h3><p>客户端与服务端进行交互响应时，需要规定双方能够接受何种类型的媒体表现形式，最常见的以application开头的媒体格式类型有：<br></p>
-<ol>
-<li>application/json： JSON数据格式</li>
-<li>application/xhtml+xml：XHTML格式</li>
-<li>application/xml： XML数据格式</li>
-<li>application/atom+xml：Atom XML聚合格式 </li>
-</ol>
-<h2 id="RESTAPI设计原则"><a href="#RESTAPI设计原则" class="headerlink" title="RESTAPI设计原则"></a>RESTAPI设计原则</h2><h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><ol>
-<li>URL中应尽量使用名词，尽量避免使用动词</li>
-<li>应该尽量将API部署在专用域名之下；eg： <a href="https://api.example.com" target="_blank" rel="external">https://api.example.com</a></li>
-</ol>
-<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><ol>
-<li>路径又称”终点”（endpoint），表示API的具体网址。</li>
-</ol>
-
-          
+          <h3 id="表征状态转移"><a href="#表征状态转移" class="headerlink" title="表征状态转移"></a>表征状态转移</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/03/REST/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
