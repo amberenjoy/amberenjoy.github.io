@@ -104,7 +104,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://amberenjoy.github.io/2017/03/03/REST/">
+    <link itemprop="mainEntityOfPage" href="http://amberenjoy.github.io/2017/03/03/TCP:IP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amber Zhang">
@@ -272,8 +272,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/03/REST/" itemprop="url">
-                  RESTful
+                <a class="post-title-link" href="/2017/03/03/TCP:IP/" itemprop="url">
+                  TCP/IP
                 </a>
               
             
@@ -289,7 +289,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-03T11:37:52+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-03T16:37:52+08:00">
                 2017-03-03
               </time>
             
@@ -327,60 +327,43 @@
       
         
           
-            <h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><h3 id="表征状态转移"><a href="#表征状态转移" class="headerlink" title="表征状态转移"></a>表征状态转移</h3><p>（Representational State Transfer）基于HTTP协议的网络应用的接口风格，利用HTTP方法实现统一风格接口的服务。<br></p>
-<p>资源（Resources）<br></p>
-<p>REST的名称”表现层状态转化”中，省略了主语。“表现层”其实指的是”资源”（Resources）的”表现层”。</p>
-<p>“资源”，就是网络上的一个实体，或者是网络上的一个具体信息。可以用一个URL（统一资源定位符）指向它。每种资源对应一个特定的URI（uniform resource identifier，统一资源标识符）。”上网”，就是与互联网上一系列的”资源”互动，调用它的URI。</p>
-<p>表现层（Representation）<br></p>
-<p>“资源”是一种信息实体，它可以有多种外在表现形式。我们把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。<br></p>
-<p>URI只代表资源的实体，不代表形式。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
-<p>状态转化（State Transfer）<br></p>
-<p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。<br></p>
-<p>互联网通信协议HTTP协议，是一个<strong>无状态协议</strong>。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</p>
-<p><strong>什么是RESTful架构：</strong><br></p>
+            <h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h3 id="TCP-IP-和-ISO-OSI参考模型"><a href="#TCP-IP-和-ISO-OSI参考模型" class="headerlink" title="TCP/IP 和 ISO/OSI参考模型"></a>TCP/IP 和 ISO/OSI参考模型</h3><p><strong>ISO/OSI</strong></p>
 <blockquote>
-<p>每一个URI代表一种资源；<br><br>客户端和服务器之间，传递这种资源的某种表现层；<br><br>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</p>
+<p>应用层–HTTP，FTP，DNS，SMTP<br><br>表示层<br><br>会话层<br><br>传输层–TCP, UDP<br><br>网络层–IP, ICMP, ARP, RARP<br><br>数据链路层<br><br>物理层<br></p>
 </blockquote>
-<h3 id="RESTful架构"><a href="#RESTful架构" class="headerlink" title="RESTful架构"></a>RESTful架构</h3><p>–(<strong>改变url写法，让它带有状态，即语义化</strong>)</p>
-<pre><code>（1）每一个URI代表一种资源；&lt;br/&gt;
-（2）客户端和服务器之间，传递这种资源的某种表现层；&lt;br/&gt;
-（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现&quot;表现层状态转化&quot;。
-</code></pre><h3 id="HTTP协议定义了8种标准的方法。"><a href="#HTTP协议定义了8种标准的方法。" class="headerlink" title="HTTP协议定义了8种标准的方法。"></a>HTTP协议定义了8种标准的方法。</h3><p>(GET, POST, PUT, DELETE, PATCH, OPTION, HEAD)</p>
-<p><strong>关于方法语义的说明：</strong></p>
-<p>OPTIONS 用于获取资源支持的所有 HTTP 方法<br><br>HEAD 用于只获取请求某个资源返回的头信息<br><br>GET 用于从服务器获取某个资源的信息<br></p>
+<p><strong>TCP/IP</strong><br>互联网基础的网络协议–四层协议系统</p>
 <blockquote>
-<p>完成请求后返回状态码 200 OK<br><br>完成请求后需要返回被请求的资源详细信息<br></p>
+<p>应用层，传输层，网络层，网络接口层</p>
 </blockquote>
-<p>POST 用于创建新资源<br></p>
-<blockquote>
-<p>创建完成后返回状态码 201 Created<br><br>完成请求后需要返回被创建的资源详细信息<br></p>
-</blockquote>
-<p>PUT 用于完整的替换资源或者创建指定身份的资源，比如创建 id 为 123 的某个资源<br></p>
-<blockquote>
-<p>如果是创建了资源，则返回 201 Created<br><br>如果是替换了资源，则返回 200 OK<br><br>完成请求后需要返回被修改的资源详细信息<br></p>
-</blockquote>
-<p>PATCH 用于局部更新资源<br></p>
-<blockquote>
-<p>完成请求后返回状态码 200 OK<br><br>完成请求后需要返回被修改的资源详细信息<br></p>
-</blockquote>
-<p>DELETE 用于删除某个资源<br></p>
-<p><strong>安全：</strong>是指没有副作用，即请求不会对资源产生变动，连续访问多次所获得的结果不受访问者的影响。    </p>
-<blockquote>
-<p>(例如，POST: 向指定资源提交数据。PUT: 请求服务器存储一个资源。DELETE:请求服务器删除指定资源。这三个方法不安全)</p>
-</blockquote>
-<h3 id="WEB服务接收与返回的互联网资源类型"><a href="#WEB服务接收与返回的互联网资源类型" class="headerlink" title="WEB服务接收与返回的互联网资源类型"></a>WEB服务接收与返回的互联网资源类型</h3><p>客户端与服务端进行交互响应时，需要规定双方能够接受何种类型的媒体表现形式，最常见的以application开头的媒体格式类型有：<br></p>
-<ol>
-<li>application/json： JSON数据格式</li>
-<li>application/xhtml+xml：XHTML格式</li>
-<li>application/xml： XML数据格式</li>
-<li>application/atom+xml：Atom XML聚合格式 </li>
-</ol>
-<h2 id="RESTAPI设计原则"><a href="#RESTAPI设计原则" class="headerlink" title="RESTAPI设计原则"></a>RESTAPI设计原则</h2><h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><ol>
-<li>URL中应尽量使用名词，尽量避免使用动词</li>
-<li>应该尽量将API部署在专用域名之下；eg： <a href="https://api.example.com" target="_blank" rel="external">https://api.example.com</a></li>
-</ol>
-<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><ol>
-<li>路径又称”终点”（endpoint），表示API的具体网址。</li>
+<h3 id="浏览器中输入网址后到页面展现的过程"><a href="#浏览器中输入网址后到页面展现的过程" class="headerlink" title="浏览器中输入网址后到页面展现的过程"></a>浏览器中输入网址后到页面展现的过程</h3><ol>
+<li><p>用户输入网址</p>
+</li>
+<li><p>浏览器通过DNS获取网站的IP地址</p>
+<p> DNS查找IP地址的顺序：浏览器缓存，客户端缓存，互联网服务提供商（ISP）的DNS缓存，递归搜索（没有找到对应的IP地址，请求上级DNS服务器，直至找到或到根节点</p>
+</li>
+<li><p>浏览器客户端发送Http请求</p>
+<p> Http请求包括请求报头和请求主体两个部分，其中请求报头包含了至关重要的信息，包括请求的方法（GET / POST）、目标url、遵循的协议（http / https / ftp…），返回的信息是否需要缓存，以及客户端是否发送cookie等。</p>
+</li>
+<li><p>传输层TCP传输报文–<strong>三次握手</strong></p>
+</li>
+<li><p>网络层IP协议查询MAC地址</p>
+<p>IP协议的作用是把TCP分割好的各种数据包传送给接收方。而要保证确实能传到接收方还需要接收方的MAC地址，也就是物理地址。<br><br>IP地址和MAC地址是一一对应的关系，一个网络设备的IP地址可以更换，但是MAC地址一般是固定不变的。ARP协议可以将IP地址解析成对应的MAC地址。<br><br>当通信的双方不在同一个局域网时，需要多次中转才能到达最终的目标，在中转的过程中需要通过下一个中转站的MAC地址来搜索下一个中转目标。</p>
+</li>
+<li><p>数据到达数据链路层</p>
+<p> 在找到对方的MAC地址后，就将数据发送到数据链路层传输。这时，<strong>客户端发送请求的阶段结束</strong></p>
+</li>
+<li><p>服务器接收数据</p>
+<p> 接收端的服务器在链路层接收到数据包，再层层向上直到应用层。这过程中包括在运输层通过TCP协议将分段的数据包重新组成原来的HTTP请求报文。</p>
+</li>
+<li><p>服务器响应请求</p>
+<p> 服务接收到客户端发送的HTTP请求后，查找客户端请求的资源，并返回响应报文，响应报文中包括一个重要的信息——状态码。<br><br> 状态码由三位数字组成，其中比较常见的是200 OK表示请求成功。301表示永久重定向，即请求的资源已经永久转移到新的位置。在返回301状态码的同时，响应报文也会附带重定向的url，客户端接收到后将http请求的url做相应的改变再重新发送。404 not found 表示客户端请求的资源找不到。</p>
+</li>
+<li><p>服务器返回响应文件</p>
+<p> 请求成功后，服务器会返回相应的HTML文件。接下来就到了页面的渲染阶段了。</p>
+</li>
+<li><p>页面渲染</p>
+<p>关于页面渲染过程：<br><br>　　　　1）解析HTML代码，生成一棵DOM树<br><br>　　　　2）解析CSS文件<br><br>　　　　3）生成渲染树（受样式影响，包含不可见元素）<br><br>　　　　4）渲染树中的节点<br></p>
+</li>
 </ol>
 
           
@@ -680,6 +663,178 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://amberenjoy.github.io/2017/03/03/REST/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber-个人技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/03/REST/" itemprop="url">
+                  RESTful
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-03T11:37:52+08:00">
+                2017-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><h3 id="表征状态转移"><a href="#表征状态转移" class="headerlink" title="表征状态转移"></a>表征状态转移</h3><p>（Representational State Transfer）基于HTTP协议的网络应用的接口风格，利用HTTP方法实现统一风格接口的服务。<br></p>
+<p>资源（Resources）<br></p>
+<p>REST的名称”表现层状态转化”中，省略了主语。“表现层”其实指的是”资源”（Resources）的”表现层”。</p>
+<p>“资源”，就是网络上的一个实体，或者是网络上的一个具体信息。可以用一个URL（统一资源定位符）指向它。每种资源对应一个特定的URI（uniform resource identifier，统一资源标识符）。”上网”，就是与互联网上一系列的”资源”互动，调用它的URI。</p>
+<p>表现层（Representation）<br></p>
+<p>“资源”是一种信息实体，它可以有多种外在表现形式。我们把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。<br></p>
+<p>URI只代表资源的实体，不代表形式。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
+<p>状态转化（State Transfer）<br></p>
+<p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。<br></p>
+<p>互联网通信协议HTTP协议，是一个<strong>无状态协议</strong>。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</p>
+<p><strong>什么是RESTful架构：</strong><br></p>
+<blockquote>
+<p>每一个URI代表一种资源；<br><br>客户端和服务器之间，传递这种资源的某种表现层；<br><br>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</p>
+</blockquote>
+<h3 id="RESTful架构"><a href="#RESTful架构" class="headerlink" title="RESTful架构"></a>RESTful架构</h3><p>–(<strong>改变url写法，让它带有状态，即语义化</strong>)</p>
+<pre><code>（1）每一个URI代表一种资源；&lt;br/&gt;
+（2）客户端和服务器之间，传递这种资源的某种表现层；&lt;br/&gt;
+（3）客户端通过四个HTTP动词，对服务器端资源进行操作，实现&quot;表现层状态转化&quot;。
+</code></pre><h3 id="HTTP协议定义了8种标准的方法。"><a href="#HTTP协议定义了8种标准的方法。" class="headerlink" title="HTTP协议定义了8种标准的方法。"></a>HTTP协议定义了8种标准的方法。</h3><p>(GET, POST, PUT, DELETE, PATCH, OPTION, HEAD)</p>
+<p><strong>关于方法语义的说明：</strong></p>
+<p>OPTIONS 用于获取资源支持的所有 HTTP 方法<br><br>HEAD 用于只获取请求某个资源返回的头信息<br><br>GET 用于从服务器获取某个资源的信息<br></p>
+<blockquote>
+<p>完成请求后返回状态码 200 OK<br><br>完成请求后需要返回被请求的资源详细信息<br></p>
+</blockquote>
+<p>POST 用于创建新资源<br></p>
+<blockquote>
+<p>创建完成后返回状态码 201 Created<br><br>完成请求后需要返回被创建的资源详细信息<br></p>
+</blockquote>
+<p>PUT 用于完整的替换资源或者创建指定身份的资源，比如创建 id 为 123 的某个资源<br></p>
+<blockquote>
+<p>如果是创建了资源，则返回 201 Created<br><br>如果是替换了资源，则返回 200 OK<br><br>完成请求后需要返回被修改的资源详细信息<br></p>
+</blockquote>
+<p>PATCH 用于局部更新资源<br></p>
+<blockquote>
+<p>完成请求后返回状态码 200 OK<br><br>完成请求后需要返回被修改的资源详细信息<br></p>
+</blockquote>
+<p>DELETE 用于删除某个资源<br></p>
+<p><strong>安全：</strong>是指没有副作用，即请求不会对资源产生变动，连续访问多次所获得的结果不受访问者的影响。    </p>
+<blockquote>
+<p>(例如，POST: 向指定资源提交数据。PUT: 请求服务器存储一个资源。DELETE:请求服务器删除指定资源。这三个方法不安全)</p>
+</blockquote>
+<h3 id="WEB服务接收与返回的互联网资源类型"><a href="#WEB服务接收与返回的互联网资源类型" class="headerlink" title="WEB服务接收与返回的互联网资源类型"></a>WEB服务接收与返回的互联网资源类型</h3><p>客户端与服务端进行交互响应时，需要规定双方能够接受何种类型的媒体表现形式，最常见的以application开头的媒体格式类型有：<br></p>
+<ol>
+<li>application/json： JSON数据格式</li>
+<li>application/xhtml+xml：XHTML格式</li>
+<li>application/xml： XML数据格式</li>
+<li>application/atom+xml：Atom XML聚合格式 </li>
+</ol>
+<h2 id="RESTAPI设计原则"><a href="#RESTAPI设计原则" class="headerlink" title="RESTAPI设计原则"></a>RESTAPI设计原则</h2><h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><ol>
+<li>URL中应尽量使用名词，尽量避免使用动词</li>
+<li>应该尽量将API部署在专用域名之下；eg： <a href="https://api.example.com" target="_blank" rel="external">https://api.example.com</a></li>
+</ol>
+<h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><ol>
+<li>路径又称”终点”（endpoint），表示API的具体网址。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -725,7 +880,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -736,7 +891,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -747,6 +902,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/amberenjoy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
