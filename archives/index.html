@@ -112,12 +112,11 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
+      applicationID: '9LC48A5ZB8',
+      apiKey: '0f3df0f323d533d56dbe89207ce9cea9',
       indexName: '',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+      labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒" }}
   };
 </script>
 
@@ -221,9 +220,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -247,7 +284,7 @@
       
         
       
-      嗯..! 目前共计 3 篇日志。 继续努力。
+      嗯..! 目前共计 4 篇日志。 继续努力。
     </span>
 
     
@@ -271,9 +308,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/03/03/TCP:IP/" itemprop="url">
+            <a class="post-title-link" href="/2017/03/12/JavaScript OOP/" itemprop="url">
               
-                <span itemprop="name">TCP/IP</span>
+                <span itemprop="name">OOP</span>
               
             </a>
         
@@ -281,9 +318,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-03T16:37:52+08:00"
-              content="2017-03-03" >
-          03-03
+              datetime="2017-03-12T20:12:52+08:00"
+              content="2017-03-12" >
+          03-12
         </time>
       </div>
 
@@ -308,9 +345,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/03/03/Node/" itemprop="url">
+            <a class="post-title-link" href="/2017/03/03/TCP:IP/" itemprop="url">
               
-                <span itemprop="name">Node.js</span>
+                <span itemprop="name">TCP/IP</span>
               
             </a>
         
@@ -318,7 +355,7 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-03T11:37:52+08:00"
+              datetime="2017-03-03T16:37:52+08:00"
               content="2017-03-03" >
           03-03
         </time>
@@ -371,6 +408,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           
@@ -414,7 +455,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -425,7 +466,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -622,8 +663,36 @@
 
   
 
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
   
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
 
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+  
+    
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script type="text/javascript" src="/js/src/algolia.js?v=5.1.0"></script>
+
+  
 </body>
 </html>
